@@ -28,8 +28,6 @@ function setup() {
 
   platform2 = new Ground(420,140,300,10);
 
-  backgrond = "white";
-
   
   //level one
   block1 = new Block(330,380,30,40);
@@ -67,7 +65,7 @@ function setup() {
 }
 
 function draw() {
-  background(backgrond);  
+  background(255,255,255);  
 
   Engine.update(engine);
 
@@ -136,8 +134,6 @@ function draw() {
   text("SCORE: "+score, 700, 40);
   SlingShot.display();
 
-  ChangeBackground();
-
 
   drawSprites();
 }
@@ -153,19 +149,4 @@ function keyPressed(){
   if(keyCode == 32){
     SlingShot.attach(this.polygon);
   }
-}
-async function ChangeBackground(){
-  var api = await fetch("http://worldtimeapi.org/api/timezone/America/Chicago");
-  var json = await api.json();
-
-  var date = json.datetime;
-
-  var hour = date.slice(11,13);
-
-  if(hour>=0600 && hour<=1900){
-    backgrond = "black"
-  }
-  else{
-    backgrond = "white"
-  } 
 }

@@ -23,14 +23,17 @@ class Block {
         rectMode(CENTER);
         rect(0, 0, this.width, this.height);
         pop();
-      } else{
-        this.Visiblity = 0;
-        World.remove(world, this.body);
+      } else {
+        if(this.Visiblity === 255){
+          this.Visiblity = 0;
+        }
       }
     }
     score(){
-      if(this.Visiblity === 0){
-        score++;
+        if(this.body.speed >= 3&&this.Visiblity === 0){
+          this.Visiblity = 265;
+          score = score+1;
+          World.remove(world, this.body);
       }
     }
   };

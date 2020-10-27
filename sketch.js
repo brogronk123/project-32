@@ -11,7 +11,7 @@ var backgrond;
 var score;
 
 function setup() {
-  createCanvas(800,400);
+  createCanvas(800,800);
   engine = Engine.create();
   world = engine.world;
 
@@ -26,7 +26,7 @@ function setup() {
 
   platform = new Ground(420,400,300,20);
 
-  platform2 = new Ground(420,140,300,10);
+  platform2 = new Ground(470,140,300,10);
 
   backgrond = "white";
 
